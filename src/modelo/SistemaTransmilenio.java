@@ -54,7 +54,7 @@ public class SistemaTransmilenio implements Serializable {
     // --- Servicios de Comportamiento (Requerimientos) ---
 
     /**
-     * 1. Obtener el tiempo de espera de una estación dado su nombre.
+     * Obtener el tiempo de espera de una estación dado su nombre.
      */
     public int getTiempoEspera(String nombreEstacion) throws TransmilenioException {
         Estacion e = buscarEstacionPorNombre(nombreEstacion);
@@ -62,16 +62,9 @@ public class SistemaTransmilenio implements Serializable {
         return e.calcularTiempoEspera();
     }
 
-    /**
-     * 2. Obtener lista de nombres de rutas ordenadas alfabéticamente.
-     * Se usa TreeSet internamente para garantizar el orden natural.
-     */
-    public List<String> getNombresRutasOrdenadas() {
-        return new TreeSet<>(rutas.keySet()).stream().collect(Collectors.toList());
-    }
 
     /**
-     * 3. Calcular número de paradas entre dos estaciones para una ruta dada.
+     * Calcular número de paradas entre dos estaciones para una ruta dada.
      */
     public int getNumeroParadas(String nombreRuta, String origen, String destino) throws TransmilenioException {
         Ruta r = rutas.get(nombreRuta);
@@ -92,7 +85,7 @@ public class SistemaTransmilenio implements Serializable {
     }
 
     /**
-     * 4. Rutas SIN transbordos, ordenadas por número de paradas y luego alfabéticamente.
+     * Rutas sin transbordos, ordenadas por número de paradas y luego alfabéticamente.
      */
     public List<String> getRutasSinTransbordo(String origen, String destino) {
         List<String> resultado = new ArrayList<>();
@@ -116,7 +109,7 @@ public class SistemaTransmilenio implements Serializable {
     }
 
     /**
-     * 5. Rutas CON transbordos (exactamente 1), ordenadas por número total de paradas y luego alfabéticamente.
+     * Rutas CON transbordos (exactamente 1), ordenadas por número total de paradas y luego alfabéticamente.
      */
     public List<String> getRutasConTransbordo(String origen, String destino) {
         List<String> resultado = new ArrayList<>();
@@ -162,7 +155,7 @@ public class SistemaTransmilenio implements Serializable {
     }
 
     /**
-     * 6. Calcular tiempo de recorrido de un plan de ruta.
+     * Calcular tiempo de recorrido de un plan de ruta.
      */
     public double getTiempoRecorrido(List<ParadaPlan> plan) throws TransmilenioException {
         if (plan == null || plan.size() < 2) return 0;
@@ -181,7 +174,7 @@ public class SistemaTransmilenio implements Serializable {
     }
 
     /**
-     * 7. Encontrar el mejor plan de recorrido (Menor tiempo total).
+     * Encontrar el mejor plan de recorrido (Menor tiempo total).
      * Implementación de Dijkstra donde el peso es el tiempo.
      */
     public List<ParadaPlan> getMejorPlan(String origen, String destino) throws TransmilenioException {

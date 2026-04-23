@@ -3,8 +3,7 @@
 ## 🙋‍♂️ Introducción
 Este proyecto es un sistema de gestión y simulación computacional para la red de transporte **Transmilenio**, desarrollado para modelar colecciones y persistencia en Java. El sistema permite consultar tiempos de espera por estación, buscar rutas directas o con transbordos, planificar el recorrido más rápido entre dos puntos y manejar la importación/exportación de la configuración de la red.
 
-**Desarrolladores:** 
-* Juan Diego Gaitán
+**Desarrolladores:** * Juan Diego Gaitán
 * Oscar Lasso
 * David Contreras
 * Cristian Moreno
